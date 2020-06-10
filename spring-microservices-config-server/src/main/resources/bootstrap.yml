@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: config-server
+  devtools:
+    add-properties: true
+# Debug
+#debug: true
+# Allows to trace all calls
+#trace: true
+

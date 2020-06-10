@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--parent>
+        <groupId>com.sme</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent-->
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.0.RELEASE</version>
+        <relativePath /> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.sme.springcloud</groupId>
+    <artifactId>spring-microservices</artifactId>
+    <version>0.0.0.Dev-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>${project.organization.name} :: ${application.name}</name>
+    <url>https://github.com/StepanMelnik/SpringMicroservices</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>stepan</id>
+            <name>Stepan Melnyk</name>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:StepanMelnik/Kafka_Examples.git</connection>
+        <developerConnection>scm:git:git@github.com:StepanMelnik/Kafka_Examples.git</developerConnection>
+        <url>https://github.com/StepanMelnik/Kafka_Examples</url>
+    </scm>
+
+    <!-- Local Sonatype Nexus Repository -->
+    <distributionManagement>
+        <repository>
+            <id>repository.sme.com</id>
+            <url>http://repository.sme.com:8081/repository/maven-internal-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>repository.sme.com</id>
+            <url>http://repository.sme.com:8081/repository/maven-internal-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <application.name>Spring Microservices</application.name>
+
+        <spring-cloud.version>Hoxton.SR5</spring-cloud.version>
+        <commons-lang3.version>3.10</commons-lang3.version>
+
+        <junit-jupiter.version>5.6.2</junit-jupiter.version>
+        <mockito.version>1.10.19</mockito.version>
+        <openpojo.version>0.8.3</openpojo.version>
+        
+        <!-- Docker -->
+        <docker.image.prefix>sme</docker.image.prefix>
+        <docker.image.exposed.port>9090</docker.image.exposed.port>
+        
+        <!--docker.image.dockerfile.dir>${basedir}</docker.image.dockerfile.dir-->
+        <docker.image.dockerize.version>v0.6.1</docker.image.dockerize.version>
+        <docker.plugin.version>1.2.0</docker.plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--dependency>
+                <groupId>com.sme</groupId>
+                <artifactId>parent</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <!--dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency-->
+        
+        <!-- Test -->
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter -->
+        <!--dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency-->
+        
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+        <!--dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency-->
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <!--version>3.1</version-->
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <fork>true</fork>
+                    <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                </configuration>
+            </plugin>
+            <!--plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>1.1.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>${junit-jupiter.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin-->
+        </plugins>
+    </build>
+
+    <modules>
+        <module>spring-microservices-discovery-server</module>
+        <module>spring-microservices-config-server</module>
+        <module>spring-microservices-admin-server</module>
+    </modules>
+</project>

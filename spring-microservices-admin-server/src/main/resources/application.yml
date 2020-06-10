@@ -1,0 +1,21 @@
+# https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
+server:
+   port: 8898
+   compression:
+     enabled: true
+   error:
+     path: /error
+   http2:
+     enabled: true
+   tomcat:
+      max-threads: 20
+      basedir: ./target/tomcat
+      accesslog:
+        enabled: true
+spring:
+  profiles:
+    active: native
+  # Check all configuration in spring-cloud-config-server-2.2.3.RELEASE.jar\META-INF\spring-configuration-metadata.json
+  cloud:
+     config:
+       uri: http://localhost:8898

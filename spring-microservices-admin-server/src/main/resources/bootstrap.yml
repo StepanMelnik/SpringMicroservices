@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: admin-server
+  devtools:
+    add-properties: true
+# Debug
+#debug: true
+# Allows to trace all calls
+#trace: true

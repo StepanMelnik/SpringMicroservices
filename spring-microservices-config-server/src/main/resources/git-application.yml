@@ -1,0 +1,17 @@
+server:
+  port: 8888
+management:
+  context_path: /admin
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      server:
+        encrypt.enabled: false
+        git:
+          uri: https://github.com/StepanMelnik/SpringMicroservices/config-repo/
+          searchPaths: articleservice,articlepriceservice,articlenameservice
+          username: springcloud
+          password: XXX
+          timeout: 10

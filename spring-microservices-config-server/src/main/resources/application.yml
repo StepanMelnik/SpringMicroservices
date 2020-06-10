@@ -1,0 +1,26 @@
+# https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
+server:
+   port: 8888
+   compression:
+     enabled: true
+   error:
+     path: /error
+   http2:
+     enabled: true
+   tomcat:
+      max-threads: 20
+      basedir: ./target/tomcat
+      accesslog:
+        enabled: true
+spring:
+  profiles:
+    active: native
+  # Check all configuration in spring-cloud-config-server-2.2.3.RELEASE.jar\META-INF\spring-configuration-metadata.json
+  cloud:
+     config:
+       server:
+           # NativeEnvironmentProperties, see *EnvironmentProperties.java
+           # NativeEnvironmentRepository#findOne and NativeEnvironmentRepository#getLocaltion will be performed by microservices 
+           native:
+               # http://localhost:8888/articleservice/default, http://localhost:8888/articleservice/dev
+               searchLocations: classpath:config/,classpath:config/articleservice,classpath:config/articlepriceservice,classpath:config/articlenameservice
