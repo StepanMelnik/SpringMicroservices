@@ -1,3 +1,5 @@
+unique.app.property: "article service in dev"
+
 spring.jpa.database: "POSTGRESQL"
 spring.datasource.platform:  "postgres"
 spring.jpa.show-sql: "true"

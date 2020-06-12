@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: articlenameservice
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888
+#      discovery:
+#        enabled: true
+#        serviceId: config-server
+  devtools:
+    add-properties: true
+# Debug
+#debug: true
+# Allows to trace all calls
+#trace: true

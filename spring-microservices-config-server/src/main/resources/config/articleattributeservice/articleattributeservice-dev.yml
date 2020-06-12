@@ -1,0 +1,12 @@
+unique.app.property: "articleattribute service in dev"
+
+spring.jpa.database: "POSTGRESQL"
+spring.datasource.platform:  "postgres"
+spring.jpa.show-sql: "true"
+spring.database.driverClassName: "org.postgresql.Driver"
+spring.datasource.url: "jdbc:postgresql://192.168.0.109:5432/spring_local"
+spring.datasource.username: "developer"
+spring.datasource.password: "p0stgr3s"
+spring.datasource.testWhileIdle: "true"
+spring.datasource.validationQuery: "SELECT 1"
+spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
