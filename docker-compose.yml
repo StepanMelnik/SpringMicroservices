@@ -1,0 +1,98 @@
+## Run
+### docker-compose up
+
+version: '3.8'
+services:
+  discoveryserver:
+     image: sme/micro-discovery-server:0.1
+     ports:
+       - "8761:8761"
+  configserver:
+      image: sme/micro-config-server:0.1
+      ports:
+         - "8888:8888"
+      environment:
+         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
+         DISCOVERYSERVER_PORT: "8761"
+  # configserver2:
+  #     sme/micro-config-server:0.1
+  #     ports:
+  #        - "8889:8889"
+  #     links:
+  #         - "discoveryserver:discoveryserver"
+  #     environment:
+  #       EUREKASERVER_URI: "http://discoveryserver:8761/eureka/"
+  #       EUREKASERVER_PORT:8761
+  #database:
+  #    image: postgres:12.3
+  #    ports:
+  #    - "5432:5432"
+  #    environment:
+  #      - POSTGRES_USER=developer
+  #      - POSTGRES_PASSWORD=p0stgr3s
+  #      - POSTGRES_DB=spring_local
+  articlenameservice:
+      image: sme/micro-articlename-service:0.1
+      ports:
+        - "8010:8010"
+      environment:
+        PROFILE: "default"
+        SERVER_PORT: "8010"
+        CONFIGSERVER_URI: "http://configserver:8888"
+        CONFIGSERVER_PORT:   "8888"
+        DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
+        DISCOVERYSERVER_PORT: "8761"
+  # Second ArticleName node in Load Balancer
+  articlenameservice1:
+      image: sme/micro-articlename-service:0.1
+      ports:
+        - "8011:8011"
+      environment:
+        PROFILE: "default"
+        SERVER_PORT: "8011"
+        CONFIGSERVER_URI: "http://configserver:8888"
+        CONFIGSERVER_PORT:   "8888"
+        DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
+        DISCOVERYSERVER_PORT: "8761"
+  articlepriceservice:
+      image: sme/micro-articleprice-service:0.1
+      ports:
+        - "8020:8020"
+        - "5015:5015"
+      environment:
+        PROFILE: "default"
+        SERVER_PORT: "8020"
+        CONFIGSERVER_URI: "http://configserver:8888"
+        CONFIGSERVER_PORT:   "8888"
+        DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
+        DISCOVERYSERVER_PORT: "8761"
+        DEBUG_PORT: "5015"
+  articleattributeservice:
+      image: sme/micro-articleattribute-service:0.1
+      ports:
+        - "8030:8030"
+      environment:
+        PROFILE: "default"
+        SERVER_PORT: "8030"
+        CONFIGSERVER_URI: "http://configserver:8888"
+        CONFIGSERVER_PORT:   "8888"
+        DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
+        DISCOVERYSERVER_PORT: "8761"
+  articleservice:
+      image: sme/micro-article-service:0.1
+      ports:
+        - "8040:8040"
+      environment:
+        PROFILE: "default"
+        SERVER_PORT: "8040"
+        CONFIGSERVER_URI: "http://configserver:8888"
+        CONFIGSERVER_PORT:   "8888"
+        DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
+        DISCOVERYSERVER_PORT: "8761"
+  adminserver:
+      image: sme/micro-admin-server:0.1
+      ports:
+         - "8898:8898"
+      environment:
+         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
+         DISCOVERYSERVER_PORT: "8761"
