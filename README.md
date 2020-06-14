@@ -5,6 +5,10 @@ The simple project to fetch Article and all Article properties using Spring Clou
 
 The project is based on SpringCloud framework.
 
+TODO
+
+### Article services relation
+
 The project contains the following services:
 * Article service
 * ArticleName service
@@ -14,6 +18,15 @@ The project contains the following services:
 The services use the following relation:
 
 ![Relation between Article services](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/ServicesRelation.png?raw=true)
+
+
+### Service discovery
+Article service uses DiscoveryClient instance to connect to Eureka server and fetch all registered instances.
+
+<a href="http://micro.sme.com:8040/v1/tools/eureka/services">http://micro.sme.com:8040/v1/tools/eureka/services</a> will return all registered services.
+
+Let's say Article service uses ArtileName and ArticleAttribute services.
+We should fetch all registered services from Discovery server and validate if a service is available before calling the depend on service.
 
 
 ## Build

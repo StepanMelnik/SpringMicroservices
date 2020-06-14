@@ -101,7 +101,7 @@
         </dependency>
 
     </dependencies>
-    
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -179,12 +179,12 @@
                         </resource>
                     </resources>
                 </configuration>
-            </plugin>        
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version><!--$NO-MVN-MAN-VER$-->
             </plugin>
         </plugins>
-    </build>    
+    </build>
 </project>
