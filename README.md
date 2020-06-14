@@ -26,7 +26,7 @@ Eureka server should have the information about all registered Article services:
 ### Article services communication with servers
 
 Article services locads config properties from Config server and communicates with Discovery server as follow:
-![Article services communication with servers](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/ArticleServiceServersCommunication.png.png?raw=true)
+![Article services communication with servers](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/ArticleServiceServersCommunication.png?raw=true)
 
 
 ### Service discovery
