@@ -126,6 +126,16 @@
                     <forceJavacCompilerUse>true</forceJavacCompilerUse>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${docker.plugin.version}</version>
+            </plugin>        
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version><!--$NO-MVN-MAN-VER$-->
+            </plugin>
         </plugins>
     </build>
 
@@ -133,10 +143,10 @@
         <module>spring-microservices-discovery-server</module>
         <module>spring-microservices-config-server</module>
         <module>spring-microservices-admin-server</module>
+        <module>spring-microservices-common</module>
         <module>spring-microservices-articlename-service</module>
         <module>spring-microservices-articleprice-service</module>
         <module>spring-microservices-article-service</module>
-        <module>spring-microservices-common</module>
         <module>spring-microservices-articleattribute-service</module>
     </modules>
 </project>

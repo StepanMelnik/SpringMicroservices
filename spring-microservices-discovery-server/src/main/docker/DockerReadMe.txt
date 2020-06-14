@@ -1,5 +1,5 @@
 # Build docker file by maven:
-## mvn clean package docker:build
+## mvn clean package docker:build -DskipTests
 
 # Docker commands to build and run docker image.
 

@@ -5,6 +5,7 @@ LABEL version="0.1"
 LABEL description="The Docker image to start articlepriceservice in spring-microservices project"
 
 RUN  apk update && apk upgrade && apk add netcat-openbsd bash
+EXPOSE 5015
 RUN mkdir -p /usr/local/articlepriceservice
 ADD @project.build.finalName@.jar /usr/local/articlepriceservice/
 ADD run.sh run.sh
