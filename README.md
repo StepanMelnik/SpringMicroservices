@@ -12,7 +12,8 @@ The project contains the following services:
 * ArticlePrice service.
 
 The services use the following relation:
-[alt text](https://github.com/StepanMelnik/SpringMicroservices/resources/images/ServicesRelation.png "Relation between Article services")
+
+![Relation between Article services](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/ServicesRelation.png?raw=true)
 
 
 ## Build
