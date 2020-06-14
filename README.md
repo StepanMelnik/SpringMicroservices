@@ -23,6 +23,12 @@ Eureka server should have the information about all registered Article services:
 ![All registered Article services with Eureka](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/RegisteredServicesWithEureka.png?raw=true)
 
 
+### Article services communication with servers
+
+Article services locads config properties from Config server and communicates with Discovery server as follow:
+![Article services communication with servers](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/ArticleServiceServersCommunication.png.png?raw=true)
+
+
 ### Service discovery
 Article service uses DiscoveryClient instance to connect to Eureka server and fetch all registered instances.
 
@@ -31,8 +37,9 @@ Article service uses DiscoveryClient instance to connect to Eureka server and fe
 Let's say Article service uses ArtileName and ArticleAttribute services.
 We should fetch all registered services from Discovery server and validate if a service is available before calling the depend on service.
 
-### Client-side resiliency
+### Client-side resiliency (Hystrix Maintenance)
 
+TODO describe @HystrixCommand, Hystrix pool properties, timeout and Fallback processing. 
 
 ## Build
 
