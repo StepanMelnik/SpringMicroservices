@@ -19,6 +19,9 @@ The services use the following relation:
 
 ![Relation between Article services](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/ServicesRelation.png?raw=true)
 
+Eureka server should have the information about all registered Article services:
+![All registered Article services with Eureka](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/RegisteredServicesWithEureka.png?raw=true)
+
 
 ### Service discovery
 Article service uses DiscoveryClient instance to connect to Eureka server and fetch all registered instances.
@@ -27,6 +30,8 @@ Article service uses DiscoveryClient instance to connect to Eureka server and fe
 
 Let's say Article service uses ArtileName and ArticleAttribute services.
 We should fetch all registered services from Discovery server and validate if a service is available before calling the depend on service.
+
+### Client-side resiliency
 
 
 ## Build
