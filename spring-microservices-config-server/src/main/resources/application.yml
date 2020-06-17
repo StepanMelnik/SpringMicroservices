@@ -23,4 +23,4 @@ spring:
            # NativeEnvironmentRepository#findOne and NativeEnvironmentRepository#getLocaltion will be performed by microservices 
            native:
                # http://localhost:8888/articleservice/default, http://localhost:8888/articleservice/dev
-               searchLocations: classpath:config/,classpath:config/articleservice,classpath:config/articlepriceservice,classpath:config/articlenameservice,classpath:config/articleattributeservice
+               searchLocations: classpath:config/,classpath:config/articleservice,classpath:config/articlepriceservice,classpath:config/articlenameservice,classpath:config/articleattributeservice,classpath:config/gatewayservice

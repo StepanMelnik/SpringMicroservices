@@ -89,6 +89,17 @@ services:
         CONFIGSERVER_PORT:   "8888"
         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
         DISCOVERYSERVER_PORT: "8761"
+  gatewayservice:
+      image: sme/micro-gateway:0.1
+      ports:
+        - "5555:5555"
+      environment:
+        PROFILE: "default"
+        SERVER_PORT: "5555"
+        CONFIGSERVER_URI: "http://configserver:8888"
+        CONFIGSERVER_PORT:   "8888"
+        DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
+        DISCOVERYSERVER_PORT: "8761"
   adminserver:
       image: sme/micro-admin-server:0.1
       ports:

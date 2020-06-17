@@ -41,6 +41,19 @@ We should fetch all registered services from Discovery server and validate if a 
 
 TODO describe @HystrixCommand, Hystrix pool properties, timeout and Fallback processing. 
 
+### Gateway (Zuul)
+
+Zuuul Gateway communication with servers/services is described in the following diagram:
+![Zuuul Gateway communication with servers/services](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/ZuulProxy.png.png?raw=true)
+
+Also Gateway application allows to track User context in Request/Response headers using ZuulServlet.
+For example, ZuulTrackingFilter.java creates CorrelationId in the request headers and ZuulResponseFilter.java tracks response headers with CorrelationId.
+ 
+Open the following requests to test services against Zuul proxy:
+* http://micro.sme.com:5555/api/articleprice/v1/articleprices/1/1/1/0
+* http://micro.sme.com:5555/api/article/v1/articles/1
+
+
 ## Build
 
 Clone and install <a href="https://github.com/StepanMelnik/Parent.git">Parent</a> project before building.

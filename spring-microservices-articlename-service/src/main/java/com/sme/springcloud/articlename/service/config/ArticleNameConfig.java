@@ -1,7 +1,8 @@
 package com.sme.springcloud.articlename.service.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * The configuration of project.
@@ -15,7 +16,8 @@ import org.springframework.stereotype.Component;
  *  </ul>
  * </pre>
  */
-@Component
+@Configuration
+@ComponentScan("com.sme.springcloud.common.filter")
 public class ArticleNameConfig
 {
     @Value("${unique.app.property:#{null}}")

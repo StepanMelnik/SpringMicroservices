@@ -1,31 +1,20 @@
-package com.sme.springcloud.article.service.config;
+package com.sme.springcloud.gateway.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
+
+import com.sme.springcloud.common.interceptor.UserContextInterceptor;
 
 /**
- * The application configuration.
+ * The gateway application configuration.
  */
 @Configuration
 @ComponentScan("com.sme.springcloud.common.filter")
-public class ArticleApplicationConfig
+public class GatewayZuulConfig
 {
-    /**
-     * Load balanced web client.
-     * 
-     * @return Returns web client bean.
-     */
-    @LoadBalanced
-    @Bean
-    public WebClient.Builder loadBalancedWebClientBuilder()
-    {
-        return WebClient.builder();
-    }
-
     /**
      * Load balanced rest client.
      * 
@@ -35,6 +24,8 @@ public class ArticleApplicationConfig
     @Bean
     public RestTemplate loadBalancedRestTemplate()
     {
-        return new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getInterceptors().add(new UserContextInterceptor());
+        return restTemplate;
     }
 }

@@ -1,0 +1,6 @@
+zuul.ignored-services: "*"
+zuul.prefix: /api
+zuul.routes.articleattributeservice: /articleattribute/**
+zuul.routes.articlenameservice: /articlename/**
+zuul.routes.articlepriceservice: /articleprice/**
+zuul.routes.articleservice: /article/**

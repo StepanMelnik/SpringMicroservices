@@ -1,6 +1,6 @@
 # https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
 server:
-   port: 8030
+   port: 5555
    compression:
      enabled: true
    error:
@@ -23,11 +23,17 @@ eureka:
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
 
+#zuul:
+#  prefix: /api
+#  routes:
+#    articleattributeservice: /articleattribute/**
+#    articlenameservice: /articlename/**
+#    articlepriceservice: /articleprice/**
+#    articleservice: /article/**
+        
 #Setting logging levels
 logging:
     level:
       com.netflix: TRACE
       org.springframework.web: TRACE
-      com.sme.springcloud.articleattribute.service: TRACE
-      com.sme.springcloud.common.filter: TRACE
-        
+      com.sme.springcloud.gateway: TRACE

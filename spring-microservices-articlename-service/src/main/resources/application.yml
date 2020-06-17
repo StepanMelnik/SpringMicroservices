@@ -23,3 +23,12 @@ eureka:
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
         
+#Setting logging levels
+logging:
+    level:
+      com.netflix: TRACE
+      org.springframework.web: TRACE
+      com.sme.springcloud.articlename.service: TRACE
+      com.sme.springcloud.common.filter: TRACE
+        
+        
