@@ -44,7 +44,7 @@ TODO describe @HystrixCommand, Hystrix pool properties, timeout and Fallback pro
 ### Gateway (Zuul)
 
 Zuuul Gateway communication with servers/services is described in the following diagram:
-![Zuuul Gateway communication with servers/services](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/ZuulProxy.png.png?raw=true)
+![Zuuul Gateway communication with servers/services](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/ZuulProxy.png?raw=true)
 
 Also Gateway application allows to track User context in Request/Response headers using ZuulServlet.
 For example, ZuulTrackingFilter.java creates CorrelationId in the request headers and ZuulResponseFilter.java tracks response headers with CorrelationId.
