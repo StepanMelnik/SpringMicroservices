@@ -62,7 +62,7 @@ Clone <a href="https://github.com/StepanMelnik/SpringMicroservices.git">SpringMi
 
 ### Maven
 	> mvn clean install
-	> mvn clean package docker:build -DskipTests
+	> mvn clean package docker:build -DskipTests -Ddocker.nocache=true
 
 ### Docker
 Check a list of all created images:
@@ -138,6 +138,9 @@ JUpiter, Mock, SpringTests, MockServer used to perform unit tests.
 
 Code coverage see in <a href="http://jenkins.sme.com:8080/job/SpringMicroservicesExample/">Jenkins</a> job.
 
+## Integration/Loading tests
+TODO
+
 ## Tests
 Run [docker-compose](#docker-compose) and check the following services in browser:
 * Discovery server contains all registered services: http://micro.sme.com:8761/
@@ -156,9 +159,9 @@ All of the containers use own spring branding logo.
 ## Logs
 Modules use logback-spring.xml configuration file.
 
-All log files shared in TODO
+All log files shared in /var/log/microservices folder.
 
-
+TODO share all events in Logstash.
 
 ## TODO
 * Add UI

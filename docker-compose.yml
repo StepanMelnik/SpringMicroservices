@@ -8,14 +8,14 @@ services:
      ports:
        - "8761:8761"
      volumes:
-       - /var/log/microservices
+       - /var/log/microservices:/log/
        
   configserver:
       image: sme/micro-config-server:0.1
       ports:
          - "8888:8888"
       volumes:
-         - /var/log/microservices
+         - /var/log/microservices:/log/
       environment:
          DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
          DISCOVERYSERVER_PORT: "8761"
@@ -44,7 +44,7 @@ services:
       ports:
         - "8010:8010"
       volumes:
-        - /var/log/microservices
+        - /var/log/microservices:/log/
       environment:
         PROFILE: "default"
         SERVER_PORT: "8010"
@@ -59,7 +59,7 @@ services:
       ports:
         - "8011:8011"
       volumes:
-         - /var/log/microservices
+         - /var/log/microservices:/log/
       environment:
         PROFILE: "default"
         SERVER_PORT: "8011"
@@ -74,7 +74,7 @@ services:
         - "8020:8020"
         - "5015:5015"
       volumes:
-        - /var/log/microservices
+        - /var/log/microservices:/log/
       environment:
         PROFILE: "default"
         SERVER_PORT: "8020"
@@ -89,7 +89,7 @@ services:
       ports:
         - "8030:8030"
       volumes:
-         - /var/log/microservices
+         - /var/log/microservices:/log/
       environment:
         PROFILE: "default"
         SERVER_PORT: "8030"
@@ -103,7 +103,7 @@ services:
       ports:
         - "8040:8040"
       volumes:
-        - /var/log/microservices
+        - /var/log/microservices:/log/
       environment:
         PROFILE: "default"
         SERVER_PORT: "8040"
@@ -117,7 +117,7 @@ services:
       ports:
         - "5555:5555"
       volumes:
-        - /var/log/microservices
+        - /var/log/microservices:/log/
       environment:
         PROFILE: "default"
         SERVER_PORT: "5555"
@@ -126,10 +126,11 @@ services:
         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
         DISCOVERYSERVER_PORT: "8761"
 
-  adminserver:
-      image: sme/micro-admin-server:0.1
-      ports:
-         - "8898:8898"
-      environment:
-         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
-         DISCOVERYSERVER_PORT: "8761"
+  #adminserver:
+  #    image: sme/micro-admin-server:0.1
+  #    ports:
+  #       - "8898:8898"
+  #    environment:
+  #       DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
+  #       DISCOVERYSERVER_PORT: "8761"
+
