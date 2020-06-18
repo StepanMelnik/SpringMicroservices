@@ -7,6 +7,7 @@ LABEL description="The Docker image to start articleattribute-service in spring-
 RUN  apk update && apk upgrade && apk add netcat-openbsd bash
 RUN mkdir -p /usr/local/articleattributeservice
 ADD @project.build.finalName@.jar /usr/local/articleattributeservice/
+VOLUME /usr/local/articleattributeservice/log
 ADD run.sh run.sh
 RUN chmod +x run.sh
 CMD ./run.sh

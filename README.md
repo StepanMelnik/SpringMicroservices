@@ -9,7 +9,7 @@ TODO
 
 ### Article services relation
 
-The project contains the following services:
+The project contains the following Article services:
 * Article service
 * ArticleName service
 * ArticleAttribute service
@@ -153,9 +153,15 @@ ArticleName service is running in debug mode to connect to JVM in Docker contain
 ## Branding
 All of the containers use own spring branding logo.
 
+## Logs
+Modules use logback-spring.xml configuration file.
+
+All log files shared in TODO
+
+
+
 ## TODO
 * Add UI
 * Add Auth
-* Add Log4j
 * add kafka messaging
 * add log tracing

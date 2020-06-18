@@ -7,6 +7,7 @@ LABEL description="The Docker image to start article-service in spring-microserv
 RUN  apk update && apk upgrade && apk add netcat-openbsd bash
 RUN mkdir -p /usr/local/articleservice
 ADD @project.build.finalName@.jar /usr/local/articleservice/
+VOLUME /usr/local/articleservice/log
 ADD run.sh run.sh
 RUN chmod +x run.sh
 CMD ./run.sh

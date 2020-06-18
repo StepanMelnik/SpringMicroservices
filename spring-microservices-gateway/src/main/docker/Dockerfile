@@ -7,6 +7,7 @@ LABEL description="The Docker image to start gateway-service in spring-microserv
 RUN  apk update && apk upgrade && apk add netcat-openbsd bash
 RUN mkdir -p /usr/local/gatewayservice
 ADD @project.build.finalName@.jar /usr/local/gatewayservice/
+VOLUME /usr/local/gatewayservice/log
 ADD run.sh run.sh
 RUN chmod +x run.sh
 CMD ./run.sh

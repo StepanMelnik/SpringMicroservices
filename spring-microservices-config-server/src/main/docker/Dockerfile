@@ -7,6 +7,7 @@ LABEL description="The Docker image to start config-server in spring-microservic
 RUN  apk update && apk upgrade && apk add netcat-openbsd bash
 RUN mkdir -p /usr/local/configserver
 ADD @project.build.finalName@.jar /usr/local/configserver/
+VOLUME /usr/local/configserver/log
 ADD run.sh run.sh
 RUN chmod +x run.sh
 CMD ./run.sh

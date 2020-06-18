@@ -3,6 +3,8 @@ package com.sme.springcloud.articleattribute.service.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,7 @@ import com.sme.springcloud.articleattribute.service.service.IArticleAttributeSer
 @RequestMapping(value = "v1/articleattributes")
 public class ArticleAttributeController
 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ArticleAttributeController.class);
     private static final String ARTICLE_PRICE_HOST = "http://articlepriceservice";
 
     private final IArticleAttributeService articleAttributeService;
@@ -57,6 +60,8 @@ public class ArticleAttributeController
     @RequestMapping(value = "/{artId}", method = RequestMethod.GET)
     public ResponseEntity<ArticleAttributeWrapper> getArticleAttributes(@PathVariable("artId") Integer artId)
     {
+        LOGGER.debug("Process v1/articleattributes/{} request", artId);
+        
         List<ArticleAttribute> articleAttributes = articleAttributeService.findByArtId(artId)
                 .stream()
                 .map(aa ->

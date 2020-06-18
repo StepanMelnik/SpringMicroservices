@@ -30,10 +30,3 @@ eureka:
 #    articlenameservice: /articlename/**
 #    articlepriceservice: /articleprice/**
 #    articleservice: /article/**
-        
-#Setting logging levels
-logging:
-    level:
-      com.netflix: TRACE
-      org.springframework.web: TRACE
-      com.sme.springcloud.gateway: TRACE

@@ -7,6 +7,7 @@ LABEL description="The Docker image to start discovery-server in spring-microser
 RUN  apk update && apk upgrade && apk add netcat-openbsd bash
 RUN mkdir -p /usr/local/discoveryserver
 ADD @project.build.finalName@.jar /usr/local/discoveryserver/
+VOLUME /usr/local/discoveryserver/log
 ADD run.sh run.sh
 RUN chmod +x run.sh
 CMD ./run.sh
