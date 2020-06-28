@@ -53,6 +53,18 @@ Open the following requests to test services against Zuul proxy:
 * http://micro.sme.com:5555/api/articleprice/v1/articleprices/1/1/1/0
 * http://micro.sme.com:5555/api/article/v1/articles/1
 
+### Security (OAuth2)
+
+First of all see examples in <a href="https://github.com/StepanMelnik/Oauth2_Examples">https://github.com/StepanMelnik/Oauth2_Examples</a> project.
+
+### Reactive stream (Flux)
+
+To understand how reactive stream works in general, see unit tests in https://github.com/StepanMelnik/ProjectReactor_Examples.
+
+Pay attention on BackPressure functionality that is important to avoid to down services with slow backend.
+
+TODO backpressure project on services.
+
 
 ## Build
 
