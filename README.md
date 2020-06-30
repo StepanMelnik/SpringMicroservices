@@ -59,11 +59,14 @@ First of all see examples in <a href="https://github.com/StepanMelnik/Oauth2_Exa
 
 ### Reactive stream (Flux)
 
-To understand how reactive stream works in general, see unit tests in https://github.com/StepanMelnik/ProjectReactor_Examples.
+To understand how reactive stream works in general, see unit tests in <a href="https://github.com/StepanMelnik/ProjectReactor_Examples">ProjectReactor_Examples</a>.
 
-Pay attention on BackPressure functionality that is important to avoid to down services with slow backend.
+Also see <a href="https://github.com/StepanMelnik/SpringReactiveBackPressure_Examples">SpringReactiveBackPressure_Examples</a> to check how BackPressure works in WebFlux.
 
-TODO backpressure project on services.
+
+TODO Prepare two versions of rest controllers:
+* based on tomcat (done).
+* another version based on WebFlux (check how to create spring configuration to start Tomcat or Netty according to version)
 
 
 ## Build
