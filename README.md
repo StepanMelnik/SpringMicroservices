@@ -5,7 +5,12 @@ The simple project to fetch Article and all Article properties using Spring Clou
 
 The project is based on SpringCloud framework.
 
-TODO
+In general we can use Shopcart, Order, Campaign, Article, Payments providers, etc microservices if we use e-shop implementation.
+
+The current project divides Article module on microservices as an example.
+
+Let's say if you decide to bind article and article properties in one place, for example in ElasticSearch, you can use the idea of project as example and do not separate article relation on microservices.
+
 
 ### Article services relation
 
