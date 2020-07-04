@@ -11,6 +11,21 @@ The current project divides Article module on microservices as an example.
 
 Let's say if you decide to bind article and article properties in one place, for example in ElasticSearch, you can use the idea of project as example and do not separate article relation on microservices.
 
+-------
+
+The following important cases implemented in the current project:
+* <a href="https://github.com/StepanMelnik/SpringMicroservices#article-services-relation">Article services relation</a> describes the relations between article services;
+* <a href="https://github.com/StepanMelnik/SpringMicroservices#article-services-communication-with-configuration-server">Communication with Config server</a> shows how to load configuration of all services from Config server;
+* <a href="https://github.com/StepanMelnik/SpringMicroservices#service-discovery">Discovery server</a> shows how all services communicate with Discovery server;
+* <a href="https://github.com/StepanMelnik/SpringMicroservices#client-side-resiliency-hystrix-maintenance">Client side resiliency</a> demonstrates how to maintenance Client resiliency by Hystrix;
+* <a href="https://github.com/StepanMelnik/SpringMicroservices#gateway-zuul">Proxy server</a> creates a proxy before services, works with correlation tag, etc;
+* <a href="https://github.com/StepanMelnik/SpringMicroservices#security-oauth2">Security</a> based on OAuth2 implementation;
+* <a href="https://github.com/StepanMelnik/SpringMicroservices#reactive-stream-flux">Reactive stream</a> shows how to work with Stream system based on ReactiveProject;
+* TODO
+
+
+
+
 
 ### Article services relation
 
@@ -28,7 +43,7 @@ Eureka server should have the information about all registered Article services:
 ![All registered Article services with Eureka](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/RegisteredServicesWithEureka.png?raw=true)
 
 
-### Article services communication with servers
+### Article services communication with Configuration server
 
 Article services locads config properties from Config server and communicates with Discovery server as follow:
 ![Article services communication with servers](https://github.com/StepanMelnik/SpringMicroservices/blob/master/resources/images/ArticleServiceServersCommunication.png?raw=true)
