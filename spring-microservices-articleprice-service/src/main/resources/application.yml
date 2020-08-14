@@ -23,3 +23,23 @@ eureka:
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
         
+# Actuator properties
+management:
+  server: 
+    port: 8021
+  endpoint:
+    beans:
+      cache:
+        time-to-live: "10s"  
+    shutdown:
+      enabled: true
+  endpoints:
+    enabled-by-default: true
+    jmx:
+      exposure: 
+        include: "*"
+        #exclude:
+    web:
+      exposure:
+        include: "*"    
+        

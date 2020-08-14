@@ -7,7 +7,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import de.codecentric.boot.admin.server.config.EnableAdminServer;
 
 /**
+ * <p>
  * Application to start Admin server.
+ * </p>
+ * See <a href="https://codecentric.github.io/spring-boot-admin/2.2.3/#getting-started">Admin Server</a> documentation.
  */
 @SpringBootApplication
 @EnableAdminServer

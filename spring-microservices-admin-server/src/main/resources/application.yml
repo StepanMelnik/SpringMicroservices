@@ -19,3 +19,32 @@ spring:
   cloud:
      config:
        uri: http://localhost:8898
+  boot:
+    admin:
+      client:
+        http: http://localhost:8898
+        instance:
+          metadata: "*"
+# A mail notifications about warnings
+      notify:
+        mail:
+          from: "spring.admin.server.noreply@sme.com"
+          two: "admin@sme.com"  
+  mail:
+    host: "smtp.sme.com"
+    enabled: true
+    
+# Admin Server properties
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS        
+# Admin Server logging
+logging:
+  file: admin-boot-application.log 
+  pattern:
+    file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"

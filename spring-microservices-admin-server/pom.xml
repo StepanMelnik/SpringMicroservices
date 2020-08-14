@@ -56,13 +56,19 @@
             <artifactId>spring-boot-admin-server-ui</artifactId>
             <version>${spring-boot-admin.version}</version>
         </dependency>
+        
+        <!-- Send a mail notification about warnings -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
 
-        <!-- Third-party libraries -->
+        <!-- Expose Spring beans via JMX  -->
         <dependency>
             <groupId>org.jolokia</groupId>
             <artifactId>jolokia-core</artifactId>
-        </dependency>
-        
+        </dependency>        
+
         <!-- Testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>

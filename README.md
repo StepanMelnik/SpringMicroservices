@@ -88,6 +88,35 @@ TODO Prepare two versions of rest controllers:
 * based on tomcat (done).
 * another version based on WebFlux (check how to create spring configuration to start Tomcat or Netty according to version)
 
+### Operations
+Operations part works with SpringBoot Admin Server and SpringBoot Activator. 
+
+#### SpringBoot Admin Server
+SpringBoot Admin Server configuration is described in <a href="https://github.com/StepanMelnik/SpringMicroservices/blob/master/spring-microservices-admin-server/src/main/resources/application.yml">application.yml</a> config.
+
+The config contains the following useful properties:
+  * admin client uri
+  * end points management
+  * logging
+  * mail notification if a warning/error occurs with instances  
+  * etc
+  
+Open http://localhost:8898/wallboard to see all registered instances in admin server. When you open any instance, you will have a possibility to see Details, Metrics, Environment, Config properties, Mappinfs, JVM, etc properties.
+
+#### SpringBoot Actuator
+Spring Actuator helps to monitor and manage the Spring Boot application.
+
+Check application.yml in **spring-microservices-article-service** module to enable all Actuator properties.
+
+Pay attention that **spring-microservices-article-service** module uses 8040 port and actuator uses 8041 port (let's say when application is overloaded or all threads busy in the connection pool, we still are able to monitor jvm, etc properties of the module.)
+
+And check some of them in actuator endpoint:
+  * http://localhost:8041/actuator/ <-- shows actuator end points
+  * http://localhost:8041/actuator/health <-- health of module
+  * http://localhost:8041/actuator/configprops <-- fetches all properties
+  * http://localhost:8041/actuator/metrics/ <-- jvm, tomcat, etc metrics
+
+
 
 ## Build
 

@@ -24,3 +24,24 @@ spring:
            native:
                # http://localhost:8888/articleservice/default, http://localhost:8888/articleservice/dev
                searchLocations: classpath:config/,classpath:config/articleservice,classpath:config/articlepriceservice,classpath:config/articlenameservice,classpath:config/articleattributeservice,classpath:config/gatewayservice
+
+# Actuator properties
+management:
+  server: 
+    port: 8021
+  endpoint:
+    beans:
+      cache:
+        time-to-live: "10s"  
+    shutdown:
+      enabled: true
+  endpoints:
+    enabled-by-default: true
+    jmx:
+      exposure: 
+        include: "*"
+        #exclude:
+    web:
+      exposure:
+        include: "*"    
+        
