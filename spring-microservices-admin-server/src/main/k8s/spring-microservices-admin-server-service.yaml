@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: spring-microservices-admin-server
+  name: spring-microservices-admin-server
+  namespace: default
+spec:
+  selector:
+    app: spring-microservices-admin-server
+  ports:
+    - name: http
+      port: 8898
+      targetPort: http
+      protocol: TCP
+  type: LoadBalancer

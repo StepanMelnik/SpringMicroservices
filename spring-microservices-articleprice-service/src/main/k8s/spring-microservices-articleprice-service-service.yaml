@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: spring-microservices-articleprice-service
+  name: spring-microservices-articleprice-service
+  namespace: default
+spec:
+  selector:
+    app: spring-microservices-articleprice-service
+  ports:
+    - name: http
+      port: 8020
+      targetPort: http
+      protocol: TCP
+  type: LoadBalancer

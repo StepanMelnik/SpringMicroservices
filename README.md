@@ -191,6 +191,17 @@ Start all images step by step
 
 		# Start all other services.
 
+### Kubernetes
+
+Kubernetes deployment configuration is described in **spring-microservices-*-[service|server]\src\main\k8s\spring-microservices-*-deployment.yaml** file.
+
+Kubernetes service configuration is described in **spring-microservices-*-[service|server]\src\main\k8s\spring-microservices-*-service.yaml** file.
+
+Use the following commands to deploy pods and create k8s services:
+  * test1
+  * test2
+
+
 ### Jenkins
 
 Check Jenkins file

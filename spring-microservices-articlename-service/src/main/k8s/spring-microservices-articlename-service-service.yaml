@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: spring-microservices-articlename-service
+  name: spring-microservices-articlename-service
+  namespace: default
+spec:
+  selector:
+    app: spring-microservices-articlename-service
+  ports:
+    - name: http
+      port: 8010
+      targetPort: http
+      protocol: TCP
+  type: LoadBalancer

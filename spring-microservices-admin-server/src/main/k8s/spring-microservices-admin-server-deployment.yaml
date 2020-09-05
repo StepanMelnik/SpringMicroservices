@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  labels:
+    app: spring-microservices-admin-server
+  name: spring-microservices-admin-server
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: spring-microservices-admin-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spring-microservices-admin-server
+    spec:
+      containers:
+        -
+          image: sme/micro-admin-server:0.1
+          name: spring-microservices-admin-server
+          ports:
+            -
+              containerPort: 8898
+              name: http
+          env:
+            - name: DISCOVERYSERVER_URI
+              value: "http://discoveryserver:8761/eureka/"
+            - name: DISCOVERYSERVER_PORT
+              value: "8761"
+          volumeMounts:
+            - mountPath: /var/log/microservices
+              name: log4j    
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "125m"
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
+      restartPolicy: OnFailure
+      
