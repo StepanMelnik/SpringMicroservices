@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -24,7 +24,7 @@ spec:
               containerPort: 8761
               name: http
           volumeMounts:
-            - mountPath: /var/log/microservices
+            - mountPath: /log/
               name: log4j    
           resources:
             requests:
@@ -33,12 +33,12 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "250m"
-      restartPolicy: OnFailure
+      restartPolicy: Always
       volumes:
         - name: log4j
           hostPath:
             # directory location on host
-            path: /log
+            path: /var/log/microservices
             type: Directory
       
       
