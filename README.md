@@ -193,13 +193,36 @@ Start all images step by step
 
 ### Kubernetes
 
-Kubernetes deployment configuration is described in **spring-microservices-*-[service|server]\src\main\k8s\spring-microservices-*-deployment.yaml** file.
+Kubernetes deployment configuration is described in **spring-microservices-*-[service|server]\src\main\k8s\spring-microservices-*-deployment.yaml** file per module.
 
-Kubernetes service configuration is described in **spring-microservices-*-[service|server]\src\main\k8s\spring-microservices-*-service.yaml** file.
+Kubernetes service configuration is described in **spring-microservices-*-[service|server]\src\main\k8s\spring-microservices-*-service.yaml** file per module.
 
-Use the following commands to deploy pods and create k8s services:
-  * test1
-  * test2
+Check all commands to work with k8s cluster: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+Use the following commands to deploy pods and create k8s services step by step:
+  * create docker images: mvn clean package docker:build -DskipTests -Ddocker.nocache=true
+  * docker images | grep sme/micro  <-- all mcro-* images should be created by maven
+  * start discoveryserver:
+    * sudo kubectl apply -f spring-microservices-discovery-server/src/main/k8s/spring-microservices-discovery-server-deployment.yaml	<-- deploy pod + replication controller
+    * sudo kubectl get pods  <-- Ready with Status=Running
+    * sudo kubectl describe pod spring-microservices-discovery-server  <-- no error
+    * sudo kubectl describe deployment spring-microservices-discovery-server
+    * sudo kubectl apply -f spring-microservices-discovery-server/src/main/k8s/spring-microservices-discovery-server-service.yaml	<-- deploy service
+    * sudo kubectl get services
+    * sudo kubectl describe service spring-microservices-discovery-server
+    * sudo kubectl logs spring-microservices-discovery-server-bbbc5c5fb-6r6k7  <-- check logs in pod
+    * check logs on host: /var/log/microservices
+  * start configserver:     
+    * sudo kubectl apply -f spring-microservices-config-server/src/main/k8s/spring-microservices-config-server-deployment.yaml
+    * sudo kubectl apply -f spring-microservices-config-server/src/main/k8s/spring-microservices-config-server-service.yaml
+  * start articlenameservice:     
+    * s
+  * start articlepriceservice:     
+    * s
+  * start articleattributeservice:     
+    * s
+  * start articleservice:     
+    * s
 
 
 ### Jenkins
@@ -241,5 +264,5 @@ TODO share all events in Logstash.
 ## TODO
 * Add UI
 * Add Auth
-* add kafka messaging
+* add event-driven patterns based on kafka SAGA, Command Query Responsibility Segregation (CQRS):  
 * add log tracing

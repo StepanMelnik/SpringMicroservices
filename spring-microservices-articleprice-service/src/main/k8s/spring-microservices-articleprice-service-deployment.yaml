@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -46,7 +46,7 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "250m"
-      restartPolicy: OnFailure
+      restartPolicy: Always
       volumes:
         - name: log4j
           hostPath:
