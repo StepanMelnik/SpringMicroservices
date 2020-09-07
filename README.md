@@ -201,7 +201,7 @@ The project works in docker-compose container and communicates with Eureka serve
 Kubernetes works with service discovery and load balancing on its own. It means we should migrate the project to k8s cluster to get the project working.
 
 There is a few solutions to do it:
-  * disable Ribbon load balancer and move Eureka service to manage external access to the service in a cluster by load balancing
+  * disable Ribbon load balancer and move Eureka service to k8s Ingress controller to manage external access to the service in a cluster by load balancing
   * use Spring Cloud Kubernetes integration  
 
 But this is out of scope of the project.
