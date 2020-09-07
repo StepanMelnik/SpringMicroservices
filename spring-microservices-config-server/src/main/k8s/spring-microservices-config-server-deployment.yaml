@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: spring-microservices-config-server
-  name: spring-microservices-config-server
+    app: configserver
+  name: configserver
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: spring-microservices-config-server
+      app: configserver
   replicas: 1
   template:
     metadata:
       labels:
-        app: spring-microservices-config-server
+        app: configserver
     spec:
       containers:
         -
           image: sme/micro-config-server:0.1
-          name: spring-microservices-config-server
+          name: configserver
           ports:
             -
               containerPort: 8888
@@ -38,7 +38,7 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "250m"
-      restartPolicy: Always
+      #restartPolicy: Never
       volumes:
         - name: log4j
           hostPath:

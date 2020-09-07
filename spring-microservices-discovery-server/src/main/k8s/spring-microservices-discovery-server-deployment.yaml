@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: spring-microservices-discovery-server
-  name: spring-microservices-discovery-server
+    app: discoveryserver
+  name: discoveryserver
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: spring-microservices-discovery-server
+      app: discoveryserver
   replicas: 1
   template:
     metadata:
       labels:
-        app: spring-microservices-discovery-server
+        app: discoveryserver
     spec:
       containers:
         -
           image: sme/micro-discovery-server:0.1
-          name: spring-microservices-discovery-server
+          name: discoveryserver
           ports:
             -
               containerPort: 8761
@@ -26,14 +26,14 @@ spec:
           volumeMounts:
             - mountPath: /log/
               name: log4j    
-          resources:
-            requests:
-              memory: "64Mi"
-              cpu: "125m"
-            limits:
-              memory: "128Mi"
-              cpu: "250m"
-      restartPolicy: Always
+     #     resources:
+     #       requests:
+     #         memory: "128Mi"
+     #         cpu: "125m"
+     #       limits:
+     #         memory: "1024Mi"
+     #         cpu: "500m"
+      #restartPolicy: Always
       volumes:
         - name: log4j
           hostPath:

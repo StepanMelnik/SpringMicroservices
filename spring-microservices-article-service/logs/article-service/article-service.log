@@ -1,0 +1,100 @@
+2020-06-18 11:46:41,384 INFO org.springframework.cloud.config.client.ConfigServicePropertySourceLocator [main] Fetching config from server at : http://localhost:8888
+2020-06-18 11:46:43,384 INFO org.springframework.cloud.config.client.ConfigServicePropertySourceLocator [main] Located environment: name=articleservice, profiles=[default], label=null, version=null, state=null
+2020-06-18 11:46:43,385 INFO org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration [main] Located property source: [BootstrapPropertySource {name='bootstrapProperties-classpath:config/articleservice/articleservice.yml'}]
+2020-06-18 11:46:43,399 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: default
+2020-06-18 11:46:46,236 WARN org.springframework.boot.actuate.endpoint.EndpointId [main] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-06-18 11:46:46,256 WARN org.springframework.boot.actuate.endpoint.EndpointId [main] Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+2020-06-18 11:46:46,365 INFO org.springframework.cloud.context.scope.GenericScope [main] BeanFactory id=a7014239-63d3-3f5c-963f-845aa6ed492e
+2020-06-18 11:46:46,708 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-06-18 11:46:46,711 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-06-18 11:46:46,715 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-06-18 11:46:47,150 WARN com.netflix.config.sources.URLConfigurationSource [main] No URLs will be polled as dynamic configuration sources.
+2020-06-18 11:46:47,151 INFO com.netflix.config.sources.URLConfigurationSource [main] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-06-18 11:46:47,160 WARN com.netflix.config.sources.URLConfigurationSource [main] No URLs will be polled as dynamic configuration sources.
+2020-06-18 11:46:47,160 INFO com.netflix.config.sources.URLConfigurationSource [main] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-06-18 11:46:47,680 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-18 11:46:48,416 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [main] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-06-18 11:46:48,433 WARN org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerClientAutoConfiguration$ReactorLoadBalancerClientRibbonWarnLogger [main] You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-06-18 11:46:48,488 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-06-18 11:46:48,538 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [main] Setting initial instance status as: STARTING
+2020-06-18 11:46:48,601 INFO com.netflix.discovery.DiscoveryClient [main] Initializing Eureka in region us-east-1
+2020-06-18 11:46:48,660 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using JSON encoding codec LegacyJacksonJson
+2020-06-18 11:46:48,660 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using JSON decoding codec LegacyJacksonJson
+2020-06-18 11:46:48,841 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using XML encoding codec XStreamXml
+2020-06-18 11:46:48,841 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using XML decoding codec XStreamXml
+2020-06-18 11:46:49,014 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [main] Resolving eureka endpoints via configuration
+2020-06-18 11:46:49,033 INFO com.netflix.discovery.DiscoveryClient [main] Disable delta property : false
+2020-06-18 11:46:49,034 INFO com.netflix.discovery.DiscoveryClient [main] Single vip registry refresh property : null
+2020-06-18 11:46:49,034 INFO com.netflix.discovery.DiscoveryClient [main] Force full registry fetch : false
+2020-06-18 11:46:49,034 INFO com.netflix.discovery.DiscoveryClient [main] Application is null : false
+2020-06-18 11:46:49,035 INFO com.netflix.discovery.DiscoveryClient [main] Registered Applications size is zero : true
+2020-06-18 11:46:49,035 INFO com.netflix.discovery.DiscoveryClient [main] Application version is -1: true
+2020-06-18 11:46:49,036 INFO com.netflix.discovery.DiscoveryClient [main] Getting all instance registry info from the eureka server
+2020-06-18 11:46:49,139 INFO com.netflix.discovery.DiscoveryClient [main] The response status is 200
+2020-06-18 11:46:49,143 INFO com.netflix.discovery.DiscoveryClient [main] Starting heartbeat executor: renew interval is: 30
+2020-06-18 11:46:49,146 INFO com.netflix.discovery.InstanceInfoReplicator [main] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-06-18 11:46:49,150 INFO com.netflix.discovery.DiscoveryClient [main] Discovery Client initialized at timestamp 1592470009149 with initial instances count: 7
+2020-06-18 11:46:49,156 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [main] Registering application ARTICLESERVICE with eureka with status UP
+2020-06-18 11:46:49,157 INFO com.netflix.discovery.DiscoveryClient$3 [main] Saw local status change event StatusChangeEvent [timestamp=1592470009157, current=UP, previous=STARTING]
+2020-06-18 11:46:49,159 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_ARTICLESERVICE/debian:articleservice:8040: registering service...
+2020-06-18 11:46:49,188 INFO org.springframework.boot.StartupInfoLogger [main] Started ArticleServiceApplicationTest in 8.425 seconds (JVM running for 10.392)
+2020-06-18 11:46:49,220 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_ARTICLESERVICE/debian:articleservice:8040 - registration status: 204
+2020-06-18 11:46:49,240 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [SpringContextShutdownHook] Unregistering application ARTICLESERVICE with eureka with status DOWN
+2020-06-18 11:46:49,241 WARN com.netflix.discovery.DiscoveryClient$3 [SpringContextShutdownHook] Saw local status change event StatusChangeEvent [timestamp=1592470009241, current=DOWN, previous=UP]
+2020-06-18 11:46:49,241 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_ARTICLESERVICE/debian:articleservice:8040: registering service...
+2020-06-18 11:46:49,249 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_ARTICLESERVICE/debian:articleservice:8040 - registration status: 204
+2020-06-18 11:46:49,261 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-18 11:46:49,272 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Shutting down DiscoveryClient ...
+2020-06-18 11:46:52,275 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Unregistering ...
+2020-06-18 11:46:52,285 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] DiscoveryClient_ARTICLESERVICE/debian:articleservice:8040 - deregister  status: 200
+2020-06-18 11:46:52,298 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Completed shut down of DiscoveryClient
+2020-06-18 12:22:56,616 INFO org.springframework.cloud.config.client.ConfigServicePropertySourceLocator [main] Fetching config from server at : http://localhost:8888
+2020-06-18 12:22:57,011 INFO org.springframework.cloud.config.client.ConfigServicePropertySourceLocator [main] Located environment: name=articleservice, profiles=[default], label=null, version=null, state=null
+2020-06-18 12:22:57,013 INFO org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration [main] Located property source: [BootstrapPropertySource {name='bootstrapProperties-classpath:config/articleservice/articleservice.yml'}]
+2020-06-18 12:22:57,031 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: default
+2020-06-18 12:22:58,182 WARN org.springframework.boot.actuate.endpoint.EndpointId [main] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-06-18 12:22:58,199 WARN org.springframework.boot.actuate.endpoint.EndpointId [main] Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+2020-06-18 12:22:58,294 INFO org.springframework.cloud.context.scope.GenericScope [main] BeanFactory id=a7014239-63d3-3f5c-963f-845aa6ed492e
+2020-06-18 12:22:58,603 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-06-18 12:22:58,607 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-06-18 12:22:58,611 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-06-18 12:22:59,026 WARN com.netflix.config.sources.URLConfigurationSource [main] No URLs will be polled as dynamic configuration sources.
+2020-06-18 12:22:59,026 INFO com.netflix.config.sources.URLConfigurationSource [main] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-06-18 12:22:59,031 WARN com.netflix.config.sources.URLConfigurationSource [main] No URLs will be polled as dynamic configuration sources.
+2020-06-18 12:22:59,032 INFO com.netflix.config.sources.URLConfigurationSource [main] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-06-18 12:22:59,497 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-18 12:23:00,299 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [main] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-06-18 12:23:00,321 WARN org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerClientAutoConfiguration$ReactorLoadBalancerClientRibbonWarnLogger [main] You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-06-18 12:23:00,398 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-06-18 12:23:00,449 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [main] Setting initial instance status as: STARTING
+2020-06-18 12:23:00,519 INFO com.netflix.discovery.DiscoveryClient [main] Initializing Eureka in region us-east-1
+2020-06-18 12:23:00,582 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using JSON encoding codec LegacyJacksonJson
+2020-06-18 12:23:00,582 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using JSON decoding codec LegacyJacksonJson
+2020-06-18 12:23:00,696 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using XML encoding codec XStreamXml
+2020-06-18 12:23:00,696 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using XML decoding codec XStreamXml
+2020-06-18 12:23:00,985 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [main] Resolving eureka endpoints via configuration
+2020-06-18 12:23:01,003 INFO com.netflix.discovery.DiscoveryClient [main] Disable delta property : false
+2020-06-18 12:23:01,004 INFO com.netflix.discovery.DiscoveryClient [main] Single vip registry refresh property : null
+2020-06-18 12:23:01,004 INFO com.netflix.discovery.DiscoveryClient [main] Force full registry fetch : false
+2020-06-18 12:23:01,004 INFO com.netflix.discovery.DiscoveryClient [main] Application is null : false
+2020-06-18 12:23:01,004 INFO com.netflix.discovery.DiscoveryClient [main] Registered Applications size is zero : true
+2020-06-18 12:23:01,004 INFO com.netflix.discovery.DiscoveryClient [main] Application version is -1: true
+2020-06-18 12:23:01,004 INFO com.netflix.discovery.DiscoveryClient [main] Getting all instance registry info from the eureka server
+2020-06-18 12:23:01,118 INFO com.netflix.discovery.DiscoveryClient [main] The response status is 200
+2020-06-18 12:23:01,120 INFO com.netflix.discovery.DiscoveryClient [main] Starting heartbeat executor: renew interval is: 30
+2020-06-18 12:23:01,122 INFO com.netflix.discovery.InstanceInfoReplicator [main] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-06-18 12:23:01,127 INFO com.netflix.discovery.DiscoveryClient [main] Discovery Client initialized at timestamp 1592472181125 with initial instances count: 7
+2020-06-18 12:23:01,132 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [main] Registering application ARTICLESERVICE with eureka with status UP
+2020-06-18 12:23:01,132 INFO com.netflix.discovery.DiscoveryClient$3 [main] Saw local status change event StatusChangeEvent [timestamp=1592472181132, current=UP, previous=STARTING]
+2020-06-18 12:23:01,134 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_ARTICLESERVICE/debian:articleservice:8040: registering service...
+2020-06-18 12:23:01,158 INFO org.springframework.boot.StartupInfoLogger [main] Started ArticleServiceApplicationTest in 5.128 seconds (JVM running for 7.192)
+2020-06-18 12:23:01,164 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_ARTICLESERVICE/debian:articleservice:8040 - registration status: 204
+2020-06-18 12:23:01,195 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [SpringContextShutdownHook] Unregistering application ARTICLESERVICE with eureka with status DOWN
+2020-06-18 12:23:01,196 WARN com.netflix.discovery.DiscoveryClient$3 [SpringContextShutdownHook] Saw local status change event StatusChangeEvent [timestamp=1592472181196, current=DOWN, previous=UP]
+2020-06-18 12:23:01,196 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_ARTICLESERVICE/debian:articleservice:8040: registering service...
+2020-06-18 12:23:01,201 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_ARTICLESERVICE/debian:articleservice:8040 - registration status: 204
+2020-06-18 12:23:01,231 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-18 12:23:01,245 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Shutting down DiscoveryClient ...
+2020-06-18 12:23:04,248 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Unregistering ...
+2020-06-18 12:23:04,257 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] DiscoveryClient_ARTICLESERVICE/debian:articleservice:8040 - deregister  status: 200
+2020-06-18 12:23:04,275 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Completed shut down of DiscoveryClient

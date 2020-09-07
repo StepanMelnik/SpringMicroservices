@@ -2,15 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: spring-microservices-config-server
-  name: spring-microservices-config-server
+    app: configserver
+  name: configserver
   namespace: default
 spec:
   selector:
-    app: spring-microservices-config-server
+    app: configserver
   ports:
     - name: http
       port: 8888
-      targetPort: http
+      targetPort: 8888
       protocol: TCP
   type: LoadBalancer

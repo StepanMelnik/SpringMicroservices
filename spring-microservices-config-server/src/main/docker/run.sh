@@ -1,10 +1,10 @@
 #!/bin/sh
 
-echo "********************************************************"
-echo "Waiting for the discovery server to start  on port $DISCOVERYSERVER_PORT"
-echo "********************************************************"
-while ! `nc -z discoveryserver $DISCOVERYSERVER_PORT`; do sleep 5; done
-echo "-----------> Discovery server started"
+#echo "********************************************************"
+#echo "Waiting for the discovery server to start  on port $DISCOVERYSERVER_PORT"
+#echo "********************************************************"
+#while ! `nc -z discoveryserver $DISCOVERYSERVER_PORT`; do sleep 5; done
+#echo "-----------> Discovery server started"
 
 #!/bin/sh
 echo "********************************************************"
