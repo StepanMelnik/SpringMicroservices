@@ -193,6 +193,25 @@ Start all images step by step
 
 ### Kubernetes
 
+This is another story.
+
+The project supports Spring Cloud Netflix solution.
+The project works in docker-compose container and communicates with Eureka server that provides service discovery and client-side load balancing by Ribbon.
+
+Kubernetes works with service discovery and load balancing on its own. It means we should migrate the project to k8s cluster to get the project working.
+
+There is a few solutions to do it:
+  * disable Ribbon load balancer and move Eureka service to manage external access to the service in a cluster by load balancing
+  * use Spring Cloud Kubernetes integration  
+
+But this is out of scope of the project.
+
+Anyway k8s scripts added to have a vision how it would work. 
+
+
+#### Deploy ####
+
+
 Kubernetes deployment configuration is described in **spring-microservices-*-[service|server]\src\main\k8s\spring-microservices-*-deployment.yaml** file per module.
 
 Kubernetes service configuration is described in **spring-microservices-*-[service|server]\src\main\k8s\spring-microservices-*-service.yaml** file per module.
@@ -202,27 +221,108 @@ Check all commands to work with k8s cluster: https://kubernetes.io/docs/referenc
 Use the following commands to deploy pods and create k8s services step by step:
   * create docker images: mvn clean package docker:build -DskipTests -Ddocker.nocache=true
   * docker images | grep sme/micro  <-- all mcro-* images should be created by maven
-  * start discoveryserver:
-    * sudo kubectl apply -f spring-microservices-discovery-server/src/main/k8s/spring-microservices-discovery-server-deployment.yaml	<-- deploy pod + replication controller
+  * kubectl create namespace spring-microservices & sudo kubectl get namespace
+  * start **discoveryserver**:
+    * sudo kubectl apply -f spring-microservices-discovery-server/src/main/k8s/spring-microservices-discovery-server-deployment.yaml 	<-- deploy pod + replication controller
     * sudo kubectl get pods  <-- Ready with Status=Running
-    * sudo kubectl describe pod spring-microservices-discovery-server  <-- no error
+    * sudo kubectl describe pod spring-microservices-discovery-server  <-- no errors
     * sudo kubectl describe deployment spring-microservices-discovery-server
     * sudo kubectl apply -f spring-microservices-discovery-server/src/main/k8s/spring-microservices-discovery-server-service.yaml	<-- deploy service
     * sudo kubectl get services
     * sudo kubectl describe service spring-microservices-discovery-server
     * sudo kubectl logs spring-microservices-discovery-server-bbbc5c5fb-6r6k7  <-- check logs in pod
     * check logs on host: /var/log/microservices
-  * start configserver:     
+  * start **configserver**:     
     * sudo kubectl apply -f spring-microservices-config-server/src/main/k8s/spring-microservices-config-server-deployment.yaml
     * sudo kubectl apply -f spring-microservices-config-server/src/main/k8s/spring-microservices-config-server-service.yaml
-  * start articlenameservice:     
-    * s
-  * start articlepriceservice:     
-    * s
-  * start articleattributeservice:     
-    * s
-  * start articleservice:     
-    * s
+  * start **articlenameservice**:     
+    * sudo kubectl apply -f spring-microservices-articlename-service/src/main/k8s/spring-microservices-articlename-service-deployment.yaml
+    * sudo kubectl apply -f spring-microservices-articlename-service/src/main/k8s/spring-microservices-articlename-service-service.yaml
+  * start **articlepriceservice**:     
+    * sudo kubectl apply -f spring-microservices-articleprice-service/src/main/k8s/spring-microservices-articleprice-service-deployment.yaml
+    * sudo kubectl apply -f spring-microservices-articleprice-service/src/main/k8s/spring-microservices-articleprice-service-service.yaml
+  * start **articleattributeservice**:     
+    * sudo kubectl apply -f spring-microservices-articleattribute-service/src/main/k8s/spring-microservices-articleattribute-service-deployment.yaml
+    * sudo kubectl apply -f spring-microservices-articleattribute-service/src/main/k8s/spring-microservices-articleattribute-service-service.yaml
+  * start **articleservice**:     
+    * sudo kubectl apply -f spring-microservices-article-service/src/main/k8s/spring-microservices-article-service-deployment.yaml
+    * sudo kubectl apply -f spring-microservices-article-service/src/main/k8s/spring-microservices-article-service-service.yaml
+
+
+	-- start 
+	sudo kubectl apply -f spring-microservices-discovery-server/src/main/k8s/spring-microservices-discovery-server-deployment.yaml
+	sudo kubectl apply -f spring-microservices-discovery-server/src/main/k8s/spring-microservices-discovery-server-service.yaml
+	
+	sudo kubectl apply -f spring-microservices-config-server/src/main/k8s/spring-microservices-config-server-deployment.yaml
+	sudo kubectl apply -f spring-microservices-config-server/src/main/k8s/spring-microservices-config-server-service.yaml
+	
+	-- check urls in minikube
+	sudo minikube service configserver --url
+	sudo minikube service discoveryserver --url
+	
+	-- check json configs
+	sudo kubectl get service configserver -o json
+	
+	-- get endpoints
+	sudo kubectl get endpoints configserver
+
+
+#### Cleanup ####
+
+	kubectl delete -f spring-microservices-discovery-server/src/main/k8s/spring-microservices-discovery-server-deployment.yaml
+	kubectl delete -f spring-microservices-discovery-server/src/main/k8s/spring-microservices-discovery-server-service.yaml
+	kubectl delete -f spring-microservices-config-server/src/main/k8s/spring-microservices-config-server-deployment.yaml
+	kubectl delete -f spring-microservices-config-server/src/main/k8s/spring-microservices-config-server-service.yaml
+	kubectl delete -f spring-microservices-articlename-service/src/main/k8s/spring-microservices-articlename-service-deployment.yaml
+	kubectl delete -f spring-microservices-articlename-service/src/main/k8s/spring-microservices-articlename-service-service.yaml
+	
+	-- remove services
+	sudo kubectl delete service spring-microservices-articlename-service
+	
+	sudo kubectl delete service configserver
+	sudo kubectl delete service discoveryserver
+	
+	sudo kubectl get services
+	
+	-- remove pods
+	sudo kubectl delete deployment spring-microservices-articlename-service
+	sudo kubectl delete deployment configserver
+	sudo kubectl delete deployment discoveryserver
+	
+	sudo kubectl delete pod spring-microservices-articlename-service-749dfc9686-lbzln
+
+
+#### Problems ####
+
+All pods use "restartPolicy: Always" property. But in general a pod may be failed for some reason.
+
+Check a few cases as follow to check a reason:
+  * sudo kubectl describe pod spring-microservices-discovery-server-bbbc5c5fb-6r6k7 <-- check State, Reason, Last State, Exit code
+  * restart pod: sudo kubectl scale deployment spring-microservices-discovery-server --replicas=0 & sudo kubectl scale deployment spring-microservices-discovery-server --replicas=1
+  * check a docker image in interactive mode:  docker run --rm -it sme/micro-discovery-server:0.1 bash
+
+#### Debug by IDE ####
+
+If you cannot resolve an issue in k8s kluster, you can connect to a docker container in a pod by IDE remote debugger.
+
+Do the following to run java process in debug mode (for example, debug "spring-microservices-discovery-server" module):
+  * open "spring-microservices-discovery-server\src\main\docker\run.sh" and add the following option in cmd line: -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005
+  * open "spring-microservices-discovery-server\src\main\k8s\spring-microservices-discovery-server-service.yaml" and expose debug port:
+
+	spec:
+	  ports:
+	    - name: debug
+	      port: 5005
+	      targetPort: 5005
+	      protocol: TCP
+  * deploy k8s pod and service
+  * check endpoints in k8s:  sudo kubectl get endpoints discoveryserver
+  * check services: sudo kubectl get services | grep discoveryserver
+  * connect Remote application in IDE to the container in cluster: 10.96.249.97:5005  <-- you should be able to debug code 
+
+
+#### Misc ####
+Kubernetes config does not use Secret configs, Config Maps, DNS of LoadBalancer, etc. 
 
 
 ### Jenkins

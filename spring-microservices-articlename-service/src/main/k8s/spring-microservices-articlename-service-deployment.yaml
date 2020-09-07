@@ -41,11 +41,11 @@ spec:
               name: log4j    
           resources:
             requests:
-              memory: "64Mi"
+              memory: "256Mi"
               cpu: "125m"
             limits:
-              memory: "128Mi"
-              cpu: "250m"
+              memory: "1024Mi"
+              cpu: "500m"
       restartPolicy: Always
       volumes:
         - name: log4j
