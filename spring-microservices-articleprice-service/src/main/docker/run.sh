@@ -19,4 +19,4 @@ echo "********************************************************"
 # Run in debug mode, the Remote connector should be started
 #java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=$DEBUG_PORT -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=$PROFILE -Dserver.port=$SERVER_PORT -Deureka.client.serviceUrl.defaultZone=$DISCOVERYSERVER_URI -Dspring.cloud.config.uri=$DISCOVERYSERVER_URI -jar /usr/local/articlepriceservice/@project.build.finalName@.jar
 
-java -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=$PROFILE -Dserver.port=$SERVER_PORT -Deureka.client.serviceUrl.defaultZone=$DISCOVERYSERVER_URI -Dspring.cloud.config.uri=$DISCOVERYSERVER_URI -jar /usr/local/articlepriceservice/@project.build.finalName@.jar
+java -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=$PROFILE -Dserver.port=$SERVER_PORT -Deureka.client.serviceUrl.defaultZone=$DISCOVERYSERVER_URI -Dspring.cloud.config.uri=$DISCOVERYSERVER_URI -Dspring.zipkin.baseUrl=$ZIPKIN_URI -jar /usr/local/articlepriceservice/@project.build.finalName@.jar

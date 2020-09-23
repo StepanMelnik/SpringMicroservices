@@ -147,6 +147,6 @@
         <module>spring-microservices-articleprice-service</module>
         <module>spring-microservices-article-service</module>
         <module>spring-microservices-articleattribute-service</module>
-    <module>spring-microservices-gateway</module>
+        <module>spring-microservices-gateway</module>
   </modules>
 </project>

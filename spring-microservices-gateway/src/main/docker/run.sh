@@ -15,4 +15,4 @@ echo "-----------> Config server started"
 echo "********************************************************"
 echo "Starting the gatewayservice"
 echo "********************************************************"
-java -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=$PROFILE -Dserver.port=$SERVER_PORT -Deureka.client.serviceUrl.defaultZone=$DISCOVERYSERVER_URI -Dspring.cloud.config.uri=$DISCOVERYSERVER_URI -jar /usr/local/gatewayservice/@project.build.finalName@.jar
+java -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=$PROFILE -Dserver.port=$SERVER_PORT -Deureka.client.serviceUrl.defaultZone=$DISCOVERYSERVER_URI -Dspring.cloud.config.uri=$DISCOVERYSERVER_URI -Dspring.zipkin.baseUrl=$ZIPKIN_URI -jar /usr/local/gatewayservice/@project.build.finalName@.jar

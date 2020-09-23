@@ -28,7 +28,7 @@ spring:
 # Actuator properties
 management:
   server: 
-    port: 8021
+    port: 8889
   endpoint:
     beans:
       cache:

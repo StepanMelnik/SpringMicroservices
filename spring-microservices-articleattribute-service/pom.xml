@@ -21,6 +21,13 @@
         <docker.image.tag>0.1</docker.image.tag>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>jcenter</id>
+            <url>https://jcenter.bintray.com/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
@@ -76,6 +83,88 @@
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+
+        <!-- Saga pattern -->
+        <!-- https://mvnrepository.com/artifact/io.eventuate.tram.core/eventuate-tram-messaging -->
+        <!--  
+        The following proxy repository added in local maven repo
+            <repository>
+              <id>jcenter</id>
+              <url>https://jcenter.bintray.com/</url>
+            </repository>
+        -->
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-commands</artifactId>
+            <version>0.20.0.M11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.eventuate.tram.sagas</groupId>
+            <artifactId>eventuate-tram-sagas-simple-dsl</artifactId>
+            <version>0.7.0.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-jdbc-kafka</artifactId>
+            <version>0.13.0.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-commands</artifactId>
+            <version>0.13.0.RELEASE</version>
+        </dependency>
+                
+        <!--dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-commands</artifactId>
+            <version>0.26.0.RELEASE</version> 
+        </dependency>
+        
+        <dependency>
+            <groupId>io.eventuate.tram.sagas</groupId>
+            <artifactId>eventuate-tram-sagas-simple-dsl</artifactId>
+            <version>0.7.2.RELEASE</version>
+        </dependency>        
+
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-jdbc-kafka</artifactId>
+            <version>0.21.0.RELEASE</version>
+        </dependency-->
+        <!-- eventuate-tram-jdbc-kafka contains dependency -->
+        <!--dependency>
+          <groupId>io.eventuate.tram.core</groupId>
+          <artifactId>eventuate-tram-producer-jdbc</artifactId>
+          <version>0.21.0.RELEASE</version>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>io.eventuate.tram.core</groupId>
+          <artifactId>eventuate-tram-consumer-kafka</artifactId>
+          <version>0.21.0.RELEASE</version>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>io.eventuate.tram.core</groupId>
+          <artifactId>eventuate-tram-consumer-jdbc</artifactId>
+          <version>0.21.0.RELEASE</version>
+          <scope>compile</scope>
+        </dependency-->
+
+
+
         <!-- Testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -124,7 +213,7 @@
         </dependency>
 
     </dependencies>
-    
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -202,12 +291,12 @@
                         </resource>
                     </resources>
                 </configuration>
-            </plugin>        
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version><!--$NO-MVN-MAN-VER$-->
             </plugin>
         </plugins>
-    </build>    
+    </build>
 </project>

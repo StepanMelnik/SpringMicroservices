@@ -116,6 +116,20 @@ And check some of them in actuator endpoint:
   * http://localhost:8041/actuator/configprops <-- fetches all properties
   * http://localhost:8041/actuator/metrics/ <-- jvm, tomcat, etc metrics
 
+#### Distributed tracing
+
+Spring Cloud Sleuth together with Open Zipkin allows to trace requests in gateway and all article services using correlation id. 
+
+''@EnableZipkinServer'' is deprecated now, so Zipkin server is started as docker container separately.
+
+You can start Zipkin Server as standalone application locally, see https://github.com/openzipkin/zipkin/tree/master/zipkin-server#quick-start.
+
+Or start one in the docker container or docker-compose, see docker-compose.yml.
+
+How to find a trace of a request(s):
+  * first of all open http://micro.sme.com:8040/v1/articles/1 or http://micro.sme.com:5555/api/v1/articles/1
+  * check all traces in Zipkin UI: http://micro.sme.com:9411/zipkin
+  * check trace information in logback-spring.xml and output in *.log files. 
 
 
 ## Build

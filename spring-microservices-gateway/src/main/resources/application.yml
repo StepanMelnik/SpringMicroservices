@@ -23,6 +23,19 @@ eureka:
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
 
+spring:
+  zipkin:
+    baseUrl: http://localhost:9411/
+  sleuth:
+    # Note: In sleuth 3.x it is spring.sleuth.baggage.remote-fields=user_name
+    propagation-keys: artId
+    traceId128: true
+    sampler:
+      probability: 1.0 # 0.1 by default (or use Sampler.ALWAYS_SAMPLE)
+  cloud:
+    config:
+      enabled: true
+
 #zuul:
 #  prefix: /api
 #  routes:

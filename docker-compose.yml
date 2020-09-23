@@ -20,6 +20,13 @@ services:
          DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
          DISCOVERYSERVER_PORT: "8761"
 
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      # Port used for the Zipkin UI and HTTP Api
+      - 9411:9411
+
   # configserver2:
   #     sme/micro-config-server:0.1
   #     ports:
@@ -52,6 +59,7 @@ services:
         CONFIGSERVER_PORT:   "8888"
         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
         DISCOVERYSERVER_PORT: "8761"
+        ZIPKIN_URI: "http://zipkin:9411/"
   
   # Second ArticleName node in Load Balancer
   articlenameservice1:
@@ -67,6 +75,7 @@ services:
         CONFIGSERVER_PORT:   "8888"
         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
         DISCOVERYSERVER_PORT: "8761"
+        ZIPKIN_URI: "http://zipkin:9411/"
   
   articlepriceservice:
       image: sme/micro-articleprice-service:0.1
@@ -83,6 +92,7 @@ services:
         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
         DISCOVERYSERVER_PORT: "8761"
         DEBUG_PORT: "5015"
+        ZIPKIN_URI: "http://zipkin:9411/"
 
   articleattributeservice:
       image: sme/micro-articleattribute-service:0.1
@@ -97,6 +107,7 @@ services:
         CONFIGSERVER_PORT:   "8888"
         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
         DISCOVERYSERVER_PORT: "8761"
+        ZIPKIN_URI: "http://zipkin:9411/"
   
   articleservice:
       image: sme/micro-article-service:0.1
@@ -111,6 +122,7 @@ services:
         CONFIGSERVER_PORT:   "8888"
         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
         DISCOVERYSERVER_PORT: "8761"
+        ZIPKIN_URI: "http://zipkin:9411/"
   
   gatewayservice:
       image: sme/micro-gateway:0.1
@@ -125,6 +137,7 @@ services:
         CONFIGSERVER_PORT:   "8888"
         DISCOVERYSERVER_URI: "http://discoveryserver:8761/eureka/"
         DISCOVERYSERVER_PORT: "8761"
+        ZIPKIN_URI: "http://zipkin:9411/" 
 
   #adminserver:
   #    image: sme/micro-admin-server:0.1
