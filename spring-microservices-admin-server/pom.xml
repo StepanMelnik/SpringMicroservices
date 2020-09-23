@@ -173,6 +173,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>${docker.plugin.version}</version>
                 <configuration>
+                	<dockerHost>${docker.host}</dockerHost>
                     <imageName>${docker.image.name}:${docker.image.tag}</imageName>
                     <dockerDirectory>${basedir}/target/dockerfile</dockerDirectory>
                     <resources>
